@@ -13,6 +13,8 @@
 		61523CA4257673AE0070A199 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61523CA3257673AE0070A199 /* Assets.xcassets */; };
 		61523CA7257673AE0070A199 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61523CA6257673AE0070A199 /* Preview Assets.xcassets */; };
 		61523CAA257673AE0070A199 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61523CA8257673AE0070A199 /* LaunchScreen.storyboard */; };
+		61523CB3257673C80070A199 /* WeatherClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61523CB2257673C80070A199 /* WeatherClass.swift */; };
+		616028D02576E43200AD1B8C /* ErrorClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616028CF2576E43200AD1B8C /* ErrorClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		61523CA6257673AE0070A199 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		61523CA9257673AE0070A199 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		61523CAB257673AE0070A199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61523CB2257673C80070A199 /* WeatherClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherClass.swift; sourceTree = "<group>"; };
+		616028CF2576E43200AD1B8C /* ErrorClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				61523C9D257673A90070A199 /* AppDelegate.swift */,
 				61523C9F257673A90070A199 /* SceneDelegate.swift */,
 				61523CA1257673A90070A199 /* ContentView.swift */,
+				616028CF2576E43200AD1B8C /* ErrorClass.swift */,
+				61523CB2257673C80070A199 /* WeatherClass.swift */,
 				61523CA3257673AE0070A199 /* Assets.xcassets */,
 				61523CA8257673AE0070A199 /* LaunchScreen.storyboard */,
 				61523CAB257673AE0070A199 /* Info.plist */,
@@ -147,7 +153,9 @@
 			files = (
 				61523C9E257673A90070A199 /* AppDelegate.swift in Sources */,
 				61523CA0257673A90070A199 /* SceneDelegate.swift in Sources */,
+				616028D02576E43200AD1B8C /* ErrorClass.swift in Sources */,
 				61523CA2257673A90070A199 /* ContentView.swift in Sources */,
+				61523CB3257673C80070A199 /* WeatherClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
