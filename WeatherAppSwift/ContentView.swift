@@ -9,6 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
 	
+	func infoForKey(_ key: String) -> String? {
+			return (Bundle.main.infoDictionary?[key] as? String)?
+				.replacingOccurrences(of: "\\", with: "")
+	 }
+	
 	func setAlert(ErrorCode: String, ErrorMessage: String) // метод отображения ошибки пользователю
 	{
 		self.isError = ErrorCode // передаём в переменные дезигна тайтл и сообщение алерта
@@ -17,7 +22,14 @@ struct ContentView: View {
 	}
 	
 	func GetJson() {
-		let jsonURLString = "http://api.openweathermap.org/data/2.5/weather?id="+String(self.CityID)+"&appid=5f86955253d2a674d9105d4b7e130fca&units=metric"
+		let apiKey:String = ProcessInfo.processInfo.environment["API_KEY"] ?? "0"
+		if apiKey == "0"
+		{
+			setAlert(ErrorCode: "BUILD ERROR", ErrorMessage: "API KEY IS NOT DEFINED IN BUILD SETTINGS")
+		}
+		else
+		{
+		let jsonURLString = "http://api.openweathermap.org/data/2.5/weather?id="+String(self.CityID)+"&appid="+String(apiKey)+"&units=metric"
 		guard let url = URL(string: jsonURLString) else { return }
 		URLSession.shared.dataTask(with: url) { (data, response, error) in //Стартуем сессию подключения к ссылке API
 			if error != nil {
@@ -42,7 +54,7 @@ struct ContentView: View {
 				}
 			}
 			
-		}.resume()
+		}.resume()}
 	}
 	@State public var showingAlert = false
 	@State public var ErrorMessage: String = ""
