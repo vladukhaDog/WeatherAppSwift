@@ -41,6 +41,8 @@ struct ContentView: View {
 				self.temperature = weather.main?.temp ?? 0.0	//после декода пихаем значения в переменные дезигна и пихаем значения нулёвки, если в джсоне получен nil
 				self.wind = weather.wind?.speed ?? 0.0
 				self.feelsLike = weather.main?.feelsLike ?? 0.0
+				self.City = weather.name ?? "no city"
+				//print(weather.clouds?.all ?? "no gay")
 			} catch {
 				do
 				{
@@ -56,43 +58,59 @@ struct ContentView: View {
 			
 		}.resume()}
 	}
-	@State public var showingAlert = false
-	@State public var ErrorMessage: String = ""
-	@State public var isError: String = ""
+	@State private var showingAlert = false
+	@State private var ErrorMessage: String = ""
+	@State private var isError: String = ""
 	//-----
-	@State public var wind = 0.0
-	@State public var feelsLike = 0.0
-	@State public var temperature = 0.0
-	@State public var CityID: String = "498817"
+	@State private var City = "City"
+	@State private var wind = 0.0
+	@State private var feelsLike = 0.0
+	@State private var temperature = 0.0
+	@State private var CityID: String = "498817"
     var body: some View {
-		VStack(alignment: .center)
-		{
-			TextField("Enter your city ID", text: $CityID)
-				.padding()
-				.frame(alignment: .center)
-				.textFieldStyle(RoundedBorderTextFieldStyle())
-				.background(Color.blue)
-			VStack
+		ZStack{
+			BackgroundView()
+			VStack(alignment: .center)
 			{
-				Text("Current temperature is \(String(temperature)) Celcius")
-				Text("But it feels like \(String(feelsLike)) degrees.")
-				Text("The wind speed is \(String(wind)) meters per second right now!")
+				TextField(
+					"Enter your city ID",
+					text: $CityID,
+					onCommit: {
+								GetJson()
+							 }
+				)
+					.padding()
+					.frame(alignment: .center)
+					.foregroundColor(.gray)
+				
+					//.textFieldStyle(RoundedBorderTextFieldStyle())
+				Text(String(City))
+					.font(.system(size: 60))
+					.fontWeight(.ultraLight)
+					.foregroundColor(.white)
+				HStack
+				{
+					Text("\(String(temperature)) C")
+						.font(.system(size: 100))
+						.fontWeight(.ultraLight)
+						.foregroundColor(.white)
+					VStack
+					{
+						Text("Feels like \(String(feelsLike)) C")
+						Text("Wind is \(String(wind)) m/s")
+					}
+					.foregroundColor(.white)
+				}
+				.padding()
+				.multilineTextAlignment(.center)
+				.onAppear(perform: {GetJson()})	//при появлении экрана, обновить данные
+				Spacer()
 			}
-			.padding()
-			.multilineTextAlignment(.center)
-			
-			Button(action: {
-					GetJson() // по нажатию кнопку обновить данные
-			}) {
-					Text("Update")
-			}
-			.onAppear(perform: {GetJson()})	//при появлении экрана, обновить данные
-			.alert(isPresented: $showingAlert) { // если нужно показывать алерт, то оно показывает алерт (внаутре круто как так то)
-				Alert(title: Text(isError), message: Text(ErrorMessage), dismissButton: .default(Text("i got it!")))
-					
-}
 		}
 		
+		.alert(isPresented: $showingAlert) { // если нужно показывать алерт, то оно показывает алерт (внаутре круто как так то)
+			Alert(title: Text(isError), message: Text(ErrorMessage), dismissButton: .default(Text("i got it!")))
+		}
 	}
 }
 
