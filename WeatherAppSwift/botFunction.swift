@@ -32,9 +32,8 @@ func getUpdate() {
 	if apiKey == "0"
 	{
 		print("no key for bot")
+		return
 	}
-	else
-	{
 	let lastAnswerede = UserDefaults.standard.object(forKey: "lastAnswered")
 	let jsonURLString = "https://api.telegram.org/bot"+String(apiKey)+"/getUpdates?offset="+String((lastAnswerede as! Int) + 1)
 	guard let url = URL(string: jsonURLString) else { return }
@@ -61,5 +60,5 @@ func getUpdate() {
 			print("was error")
 		}
 		
-	}.resume()}
+	}.resume()
 }

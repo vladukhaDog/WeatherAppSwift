@@ -26,9 +26,8 @@ struct ContentView: View {
 		if apiKey == "0"
 		{
 			setAlert(ErrorCode: "BUILD ERROR", ErrorMessage: "API KEY IS NOT DEFINED IN BUILD SETTINGS")
+			return
 		}
-		else
-		{
 		let jsonURLString = "http://api.openweathermap.org/data/2.5/weather?id="+String(self.CityID)+"&appid="+String(apiKey)+"&units=metric"
 		guard let url = URL(string: jsonURLString) else { return }
 		URLSession.shared.dataTask(with: url) { (data, response, error) in //Стартуем сессию подключения к ссылке API
@@ -56,7 +55,7 @@ struct ContentView: View {
 				}
 			}
 			
-		}.resume()}
+		}.resume()
 	}
 	
 	let botThread = Thread {
@@ -99,15 +98,14 @@ struct ContentView: View {
 					.frame(alignment: .center)
 					.foregroundColor(.gray)
 				
-					//.textFieldStyle(RoundedBorderTextFieldStyle())
 				Text(String(City))
 					.font(.system(size: 60))
 					.fontWeight(.ultraLight)
 					.foregroundColor(.white)
 				HStack
 				{
-					Text("\(String(temperature)) C")
-						.font(.system(size: 100))
+					Text(String(temperature*10))
+						.font(.system(size: 80))
 						.fontWeight(.ultraLight)
 						.foregroundColor(.white)
 					VStack
