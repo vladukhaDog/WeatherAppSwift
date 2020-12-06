@@ -17,6 +17,7 @@
 		616028D02576E43200AD1B8C /* ErrorClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616028CF2576E43200AD1B8C /* ErrorClass.swift */; };
 		6165E035257C0A060091392F /* botUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6165E034257C0A060091392F /* botUpdate.swift */; };
 		61BB5FA9257D354300F7655B /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB5FA8257D354300F7655B /* BackgroundView.swift */; };
+		61BB5FCA257D6FB100F7655B /* botFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB5FC9257D6FB100F7655B /* botFunction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		616028CF2576E43200AD1B8C /* ErrorClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorClass.swift; sourceTree = "<group>"; };
 		6165E034257C0A060091392F /* botUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = botUpdate.swift; sourceTree = "<group>"; };
 		61BB5FA8257D354300F7655B /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		61BB5FC9257D6FB100F7655B /* botFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = botFunction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				61523C9D257673A90070A199 /* AppDelegate.swift */,
 				61523C9F257673A90070A199 /* SceneDelegate.swift */,
 				61523CA1257673A90070A199 /* ContentView.swift */,
+				61BB5FC9257D6FB100F7655B /* botFunction.swift */,
 				61BB5FA8257D354300F7655B /* BackgroundView.swift */,
 				6165E033257C09980091392F /* Classes */,
 				61523CA3257673AE0070A199 /* Assets.xcassets */,
@@ -172,6 +175,7 @@
 				616028D02576E43200AD1B8C /* ErrorClass.swift in Sources */,
 				61523CA2257673A90070A199 /* ContentView.swift in Sources */,
 				61523CB3257673C80070A199 /* WeatherClass.swift in Sources */,
+				61BB5FCA257D6FB100F7655B /* botFunction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

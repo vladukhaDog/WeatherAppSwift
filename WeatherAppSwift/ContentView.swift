@@ -58,6 +58,22 @@ struct ContentView: View {
 			
 		}.resume()}
 	}
+	
+	let botThread = Thread {
+		UserDefaults.standard.set(true, forKey: "canUpdate")
+		print("BotStarted!")
+		while true
+		{
+			if let canUpdate = UserDefaults.standard.object(forKey: "canUpdate") {
+				if (canUpdate as! Bool) //если последний на последний апдейт всё отвечено
+				{
+					getUpdate()
+					sleep(1)
+				}
+			}
+		}
+	}
+	
 	@State private var showingAlert = false
 	@State private var ErrorMessage: String = ""
 	@State private var isError: String = ""
@@ -103,7 +119,9 @@ struct ContentView: View {
 				}
 				.padding()
 				.multilineTextAlignment(.center)
-				.onAppear(perform: {GetJson()})	//при появлении экрана, обновить данные
+				.onAppear(perform: {GetJson()
+					botThread.start()
+				})	//при появлении экрана, обновить данные
 				Spacer()
 			}
 		}
