@@ -41,7 +41,6 @@ struct ContentView: View {
 				self.wind = weather.wind?.speed ?? 0.0
 				self.feelsLike = weather.main?.feelsLike ?? 0.0
 				self.City = weather.name ?? "no city"
-				//print(weather.clouds?.all ?? "no gay")
 			} catch {
 				do
 				{
@@ -77,7 +76,7 @@ struct ContentView: View {
 	@State private var ErrorMessage: String = ""
 	@State private var isError: String = ""
 	//-----
-	@State private var City = "City"
+	@State private var City = "Loading"
 	@State private var wind = 0.0
 	@State private var feelsLike = 0.0
 	@State private var temperature = 0.0
@@ -104,7 +103,7 @@ struct ContentView: View {
 					.foregroundColor(.white)
 				HStack
 				{
-					Text(String(temperature*10))
+					Text(String(temperature))
 						.font(.system(size: 80))
 						.fontWeight(.ultraLight)
 						.foregroundColor(.white)
