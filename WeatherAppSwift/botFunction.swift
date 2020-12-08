@@ -4,8 +4,6 @@
 //
 //  Created by vladukha on 06.12.2020.
 //
-//https://api.telegram.org/bot1444330618:AAHIEl4Tv68kh1tXc5BmL7MClmd7jv5ot14/sendMessage?chat_id=445668313&text=retard
-//https://api.telegram.org/bot1444330618:AAHIEl4Tv68kh1tXc5BmL7MClmd7jv5ot14/getUpdates?offset=347648859
 import Foundation
 import UIKit
 extension String{
