@@ -8,5 +8,5 @@ WeatherAppSwift/ContentView.swift - главный файл с дизайном 
 WeatherClass.swift - класс с информацией самой погоды
 
 ErrorClass.swift - класс для обработки ошибокй, получаемых от API, например 404 при вооде не правильной информации об искомом городе
-![alt text](https://github.com/vladukhaDog/WeatherAppSwift/blob/develop/main%20window.png)
 
+![alt text](https://github.com/vladukhaDog/WeatherAppSwift/blob/develop/main%20window.png)
