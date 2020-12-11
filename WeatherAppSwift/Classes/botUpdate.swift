@@ -16,10 +16,12 @@ struct BotUpdate: Codable {
 // MARK: - Result
 struct Result: Codable {
 	let updateID: Int
-	let message: Message
+	let message: Message?
+	let editedMessage: Message?
 
 	enum CodingKeys: String, CodingKey {
 		case updateID = "update_id"
+		case editedMessage = "edited_message"
 		case message
 	}
 }

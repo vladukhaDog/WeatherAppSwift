@@ -87,17 +87,24 @@ func getUpdate() {
 		}
 		guard let data = data else { return } // если в дате что-то есть, то кайфуем
 		do {
+
 			let botUpdate = try JSONDecoder().decode(BotUpdate.self, from: data)
 			
 			for result in botUpdate.result
 			{
-				GetWeather(user: result.message.from.id, CityID: result.message.text)
+				let message = result.message ?? result.editedMessage
+				if (message == nil)
+				{
+					continue
+				}
+				GetWeather(user: message!.from.id, CityID: message!.text)
 				UserDefaults.standard.set(result.updateID, forKey: "lastAnswered")
 			
 			}
 			UserDefaults.standard.set(true, forKey: "canUpdate")
 		} catch {
 			print("was error")
+			print("Unexpected error: \(error).")
 		}
 		
 	}.resume()
