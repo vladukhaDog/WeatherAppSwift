@@ -28,7 +28,7 @@ struct ContentView: View {
 			setAlert(ErrorCode: "BUILD ERROR", ErrorMessage: "API KEY IS NOT DEFINED IN BUILD SETTINGS")
 			return
 		}
-		let jsonURLString = "http://api.openweathermap.org/data/2.5/weather?id="+String(self.CityID)+"&appid="+String(apiKey)+"&units=metric"
+		let jsonURLString = "http://api.openweathermap.org/data/2.5/weather?q="+String(self.CityID).encodeUrl+"&appid="+String(apiKey)+"&units=metric"
 		guard let url = URL(string: jsonURLString) else { return }
 		URLSession.shared.dataTask(with: url) { (data, response, error) in //Стартуем сессию подключения к ссылке API
 			if error != nil {
@@ -80,7 +80,7 @@ struct ContentView: View {
 	@State private var wind = 0.0
 	@State private var feelsLike = 0.0
 	@State private var temperature = 0.0
-	@State private var CityID: String = "498817"
+	@State private var CityID: String = "Moscow"
     var body: some View {
 		ZStack{
 			BackgroundView()
